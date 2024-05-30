@@ -71,6 +71,9 @@ if (!isset($_SESSION['login_attempts'])) {
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
+            <a href="new.php">
+              <input type="button" name="register" value="Register" />
+            </a>
         </form>
     </div>
 </body>

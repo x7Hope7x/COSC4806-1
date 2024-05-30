@@ -1,13 +1,16 @@
 <?php
 session_start();
 
+require_once 'user.php';
+$user = new User();
+$user_list = $user->get_all_users();
+
 // Redirect to login.php if the user is not authenticated
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     header('Location: login.php');
     exit();
 }
 
-$username = $_SESSION['username'];
 $current_date = date('l, F j, Y, g:i A');
 ?>
 
