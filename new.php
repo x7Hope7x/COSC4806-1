@@ -46,8 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $pdo->prepare($sql);
 
             if ($stmt->execute([$username, $password_hash])) {
-                echo "Account created successfully.";
                 header('Location: login.php');
+                echo "Account created successfully.";
+                
                 exit();
             } else {
                 $registration_error = "Error: " . $stmt->errorInfo()[2];
