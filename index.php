@@ -2,8 +2,7 @@
 session_start();
 
 require_once 'user.php';
-$user = new User();
-$user_list = $user->get_all_users();
+
 
 // Redirect to login.php if the user is not authenticated
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
@@ -12,6 +11,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 }
 
 $current_date = date('l, F j, Y, g:i A');
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ $current_date = date('l, F j, Y, g:i A');
 </head>
 <body>
     <div class="welcome-container">
-        <h2>Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
+        <h2>Welcome, <?= $_SESSION['username'] ?>!</h2>
         <p>Today's date is: <?php echo $current_date; ?></p>
         <p><a href="logout.php">Logout</a></p>
     </div>
